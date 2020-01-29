@@ -1,0 +1,23 @@
+.header
+  .header__container
+    .header-fix
+      -# = current_user.name
+      -# どこかにログイン中のユーザー名を記載
+    .title
+      = link_to "car Reviews", root_path, class: :title__name
+    .user-fix
+      - if user_signed_in?
+        = link_to "LOGOUT", destroy_user_session_path, method: :delete, class: :logout
+      - else
+        = link_to "LOGIN", new_user_session_path, class: :login
+  .menu-bar
+    - if user_signed_in?
+      = link_to root_path, class: :show_link do
+        マイページ
+      = link_to root_path, class: :show_link do
+        投稿一覧
+      = link_to new_review_path, class: :a do
+        投稿する
+      = link_to "お気に入り" 
+    - else
+      = link_to "新規登録", new_user_registration_path
