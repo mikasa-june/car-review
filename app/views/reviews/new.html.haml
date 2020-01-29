@@ -1,0 +1,7 @@
+= form_with url: new_review_path, model: @review, method: :get, local: true do |form| 
+  %h3
+    投稿する
+  = form.text_field :name, placeholder: "name" 
+  = form.text_field :image, placeholder: "Image Url" 
+  = form.text_area :text, placeholder: "text" , rows: "10" 
+  = form.submit "SEND" 
