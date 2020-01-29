@@ -1,0 +1,51 @@
+.header
+  .header__container
+    .header-fix
+      -# = current_user.name
+      -# どこかにログイン中のユーザー名を記載
+    .title
+      = link_to "car Reviews", root_path, class: :title__name
+    .user-fix
+      - if user_signed_in?
+        = link_to "LOGOUT", destroy_user_session_path, method: :delete, class: :logout
+      - else
+        = link_to "LOGIN", new_user_session_path, class: :login
+  .menu-bar
+    - if user_signed_in?
+      = link_to root_path, class: :show_link do
+        マイページ
+      = link_to root_path, class: :show_link do
+        投稿一覧
+      = link_to new_review_path, class: :a do
+        投稿する
+      = link_to "お気に入り" 
+    - else
+      = link_to "新規登録", new_user_registration_path
+.main
+  .main__container
+    .main__container--left
+      .search-box 
+        検索したいワードを入力
+      .search__results--box
+        - @reviews.each do |review|
+          .result
+            .result__image
+              .resul__image--box
+                = image_tag review.image, height: '135px', width: '240px', class: 'test' if review.image.present?
+            .result__text
+              .result__text--title
+                = review.title
+              .result__text--main
+                = truncate(review.text, length: 90)
+                .show_link-box
+                  = link_to root_path, class: :show_link do
+                    続きはここをクリック
+              .result__text--date
+                = review.created_at
+
+    .main__container--right
+      .random-box
+        %p ランダムで4〜5個の投稿を表示
+.footer
+  .tweet-btn
+    %p ツイートボタン
