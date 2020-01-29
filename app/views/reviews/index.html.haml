@@ -38,8 +38,7 @@
               .result__text--main
                 = truncate(review.text, length: 90)
                 .show_link-box
-                  = link_to root_path, class: :show_link do
-                    続きはここをクリック
+                  = link_to "続きはここをクリック", review_path(review.id), class: :show_link
               .result__text--date
                 = review.created_at
 
