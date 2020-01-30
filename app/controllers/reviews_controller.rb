@@ -14,6 +14,9 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
+    @comment = Comment.new
+    @comments = @review.comments.includes(:user).order("created_at DESC")
+
   end
 
   def destroy
@@ -33,6 +36,7 @@ class ReviewsController < ApplicationController
   end
 
   private
+  # 暫定的にtag_idを1としている
   def review_params
     params.require(:review).permit(:title, :text, :image).merge(user_id: current_user.id, tag_id: 1)
   end

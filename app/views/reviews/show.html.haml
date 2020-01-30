@@ -1,3 +1,63 @@
-showページ
-= link_to "削除", review_path, method: :delete, class: :delete
-= link_to "編集", edit_review_path, class: :edit
+= render "header"
+.showTop
+  .top-container
+    .top__picture
+      .top__picture--image
+        = image_tag @review.image, height: '270px', width: '480px', class: 'image' if @review.image.present?
+    .top__items
+      .tag
+        .tag-list
+          タグ1
+        .tag-list
+          タグ2
+        .tag-list
+          タグ3
+        .tag-list
+          タグ4
+      .top__items--title
+        .title__name
+          = @review.title
+        .title__user
+          投稿者：
+          = @review.user.name
+      .top__items--btn
+        - if user_signed_in?
+          .edit-btn
+            = link_to "編集", edit_review_path, class: :edit
+          .delete-btn
+            = link_to "削除", review_path, method: :delete, class: :delete
+          .like-btn
+            = link_to "お気に入り", edit_review_path, class: :like
+        - else
+          = link_to "お気に入り登録をするにはログインしてください", new_user_session_path, class: :login
+.showMain
+  .review
+    .review__text 
+      = simple_format @review.text
+.showBottom
+  .showBottom__title
+    この投稿へのコメント
+  .bottom__comment--form
+    - if current_user
+      = form_with model: [@review, @comment], local: true do |form|
+        .form__container
+          .form
+            = form.text_field :text, placeholder: "コメントする", row: 2 
+          .send-btn
+            = form.submit "投稿" 
+    - else
+      = link_to "コメントを投稿するにはログインしてください", new_user_session_path, class: :login
+  .bottom__comment--list
+    .comment__title
+      ＜コメント一覧＞
+    .comment__list
+      - if @comments
+        - @comments.each do |comment| 
+          .comment__list--box
+            .user-name
+              = link_to comment.user.name, "/users/#{comment.user_id}" 
+            .date
+              = comment.created_at
+          .comment
+            = comment.text 
+= render "footer"
