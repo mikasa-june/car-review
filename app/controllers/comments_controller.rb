@@ -5,6 +5,9 @@ class CommentsController < ApplicationController
     redirect_to "/reviews/#{comment.review.id}"
   end
 
+  def destroy
+    comment = Comment.find()
+  end
 
   private
   def comment_params

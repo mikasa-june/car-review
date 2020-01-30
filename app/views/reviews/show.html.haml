@@ -1,5 +1,3 @@
--# = link_to "削除", review_path, method: :delete, class: :delete
--# = link_to "編集", edit_review_path, class: :edit
 = render "header"
 .showTop
   .top-container
@@ -50,13 +48,16 @@
     - else
       = link_to "コメントを投稿するにはログインしてください", new_user_session_path, class: :login
   .bottom__comment--list
-    .comment-title
+    .comment__title
       ＜コメント一覧＞
-    .comment-list
+    .comment__list
       - if @comments
         - @comments.each do |comment| 
-          %p
-            = link_to comment.user.name, "/users/#{comment.user_id}" 
-            ：
+          .comment__list--box
+            .user-name
+              = link_to comment.user.name, "/users/#{comment.user_id}" 
+            .date
+              = comment.created_at
+          .comment
             = comment.text 
 = render "footer"

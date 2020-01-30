@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
   def show
     @review = Review.find(params[:id])
     @comment = Comment.new
-    @comments = @review.comments.includes(:user)
+    @comments = @review.comments.includes(:user).order("created_at DESC")
 
   end
 
