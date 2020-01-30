@@ -33,6 +33,7 @@ class ReviewsController < ApplicationController
   end
 
   private
+  # 暫定的にtag_idを1としている
   def review_params
     params.require(:review).permit(:title, :text, :image).merge(user_id: current_user.id, tag_id: 1)
   end

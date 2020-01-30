@@ -1,3 +1,44 @@
 -# = link_to "削除", review_path, method: :delete, class: :delete
 -# = link_to "編集", edit_review_path, class: :edit
 = render "header"
+.showTop
+  .top-container
+    .top__picture
+      .top__picture--image
+        = image_tag @review.image, height: '270px', width: '480px', class: 'image' if @review.image.present?
+    .top__items
+      .tag
+        .tag-list
+          タグ1
+        .tag-list
+          タグ2
+        .tag-list
+          タグ3
+        .tag-list
+          タグ4
+      .top__items--title
+        .title__name
+          = @review.title
+        .title__user
+          -# = @review.user.name
+          投稿者: user_name
+      .top__items--btn
+        - if user_signed_in?
+          .edit-btn
+            = link_to "編集", edit_review_path, class: :edit
+          .delete-btn
+            = link_to "削除", review_path, method: :delete, class: :delete
+          .like-btn
+            = link_to "お気に入り", edit_review_path, class: :like
+        - else
+          = link_to "お気に入り登録をするにはログインしてください", new_user_session_path, class: :login
+.showMain
+  .review
+    .review__text 
+      = simple_format @review.text
+.showBottom
+  .bottom__comment--form
+    コメントを入力
+  .bottom__comment--list
+    コメントの表示
+= render "footer"
