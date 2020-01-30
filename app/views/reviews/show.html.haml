@@ -20,8 +20,8 @@
         .title__name
           = @review.title
         .title__user
-          -# = @review.user.name
-          投稿者: user_name
+          投稿者：
+          = @review.user.name
       .top__items--btn
         - if user_signed_in?
           .edit-btn
@@ -38,7 +38,19 @@
       = simple_format @review.text
 .showBottom
   .bottom__comment--form
-    コメントを入力
+    - if current_user
+      = form_with model: [@review, @comment], local: true do |form| 
+        = form.text_field :text, placeholder: "コメントする", row: 2 
+        = form.submit "SEND" 
+    - else
+      コメントの表示にはログインが必要です
   .bottom__comment--list
-    コメントの表示
+    %h4 
+      ＜コメント一覧＞
+      - if @comments
+        - @comments.each do |comment| 
+          %p
+            = link_to comment.user.name, "/users/#{comment.user_id}" 
+            ：
+            = comment.text 
 = render "footer"
