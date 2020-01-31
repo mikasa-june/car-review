@@ -7,29 +7,88 @@
   &__container {
     display: flex;
     justify-content: space-between;
+    height: 65%;
     .user-fix {
-      background-color: white;
-      height: 60px;
-      width: 100px;
-      margin: 10px 10px 0 0;
-      border: solid #983737 3px;
-      border-radius: 20px;
-      align-items: center;
-      .logout {
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        color: #983737;
-        line-height: 57px;
-        font-size: 25px;
-        margin-left: 10px;
+      margin-top: 5px;
+      height: 80%;
+      font-size: 15px;
+      border: #983737 solid 3px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 3px 1px #666;
+      -moz-box-shadow: 2px 2px 3px 1px #666;
+      -webkit-box-shadow: 2px 2px 3px 1px #666;
+      .user_name {
+        color: black;
         text-decoration: none;
+        margin-right: 10px;
+        line-height: 350%;
       }
-      .login {
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        color: #983737;
-        line-height: 57px;
-        font-size: 25px;
-        margin-left: 19px;
-        text-decoration: none;
+    }
+    .header-fix1 {
+      width: 20%;
+      display: flex;
+      justify-content: space-between;
+      .header-fix2 {
+      }
+      .logout__btn {
+        width: 130px;
+        height: 60px;
+        margin-right: 17px;
+        margin-top: 2px;
+        position: relative;
+        .logout {
+          font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+          font-size: 30px;
+          font-weight: bold;
+          padding: 15px 15px;
+          background-color: white;
+          color: #983737;
+          border-style: none;
+          text-decoration: none;
+          position: absolute;
+          border: #983737 solid 3px;
+          border-radius: 40px;
+          box-shadow: 2px 2px 3px 1px #666;
+          -moz-box-shadow: 2px 2px 3px 1px #666;
+          -webkit-box-shadow: 2px 2px 3px 1px #666;
+        }
+        .logout:hover {
+          background-color: #983737;
+          color: #fff;
+        }
+      }
+      
+      .login__btn {
+        .login {
+          font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+      }
+      .login__btn {
+        width: 130px;
+        height: 60px;
+        margin-right: 2px;
+        margin-top: 2px;
+        position: relative;
+        .login {
+          font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+          font-size: 30px;
+          font-weight: bold;
+          padding: 15px 20px;
+          background-color: white;
+          color: #983737;
+          border-style: none;
+          text-decoration: none;
+          position: absolute;
+          border: #983737 solid 3px;
+          border-radius: 40px;
+          box-shadow: 2px 2px 3px 1px #666;
+          -moz-box-shadow: 2px 2px 3px 1px #666;
+          -webkit-box-shadow: 2px 2px 3px 1px #666;
+        }
+        .login:hover {
+          background-color: #983737;
+          color: #fff;
+        }
       }
     }
     .title {
@@ -38,8 +97,7 @@
       width: 200px;
       margin-left: 70px;
       border-radius: 30px;
-      border-bottom: solid 5px rgb(124, 124, 124);
-      // background-image: url("images.jpeg");
+      border-bottom: solid 5px rgb(124, 124, 124);;
       &__name {
         font-size: 40px;
         text-align: center;
@@ -52,11 +110,116 @@
     }
   }
   .menu-bar {
-    background-color: pink;
     height: 45px;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    .my_link-btn {
+      width: 25%;
+      height: 100%;
+      position: relative;
+      .my_link {
+        font-size: 25px;
+        font-weight: bold;
+        padding-left:39%;
+        padding-right: 25%;
+        background-color: white;
+        color: #983737;
+        border-style: none;
+        text-decoration: none;
+        position: absolute;
+        border: #983737 solid 3px;
+      }
+      .my_link:hover {
+        background-color: #983737;
+        color: #fff;
+      }
+    }
+    .show_link-btn {
+      width: 25%;
+      height: 100%;
+      position: relative;
+      .show_link {
+        font-size: 25px;
+        font-weight: bold;
+        padding-left:40%;
+        padding-right: 30%;
+        background-color: white;
+        color: #983737;
+        border-style: none;
+        text-decoration: none;
+        position: absolute;
+        border: #983737 solid 3px;
+      }
+      .show_link:hover {
+        background-color: #983737;
+        color: #fff;
+      }
+    }
+    .post-btn {
+      width: 25%;
+      height: 45px;
+      position: relative;
+      .post {
+        font-size: 25px;
+        font-weight: bold;
+        padding-left:40%;
+        padding-right: 30%;
+        background-color: white;
+        color: #983737;
+        border-style: none;
+        text-decoration: none;
+        position: absolute;
+        border: #983737 solid 3px;
+      }
+      .post:hover {
+        background-color: #983737;
+        color: #fff;
+      }
+    }
+    .likes-btn {
+      width: 25%;
+      height: 100%;
+      position: relative;
+      .likes {
+        font-size: 25px;
+        font-weight: bold;
+        padding-left:35%;
+        padding-right: 28%;
+        background-color: white;
+        color: #983737;
+        border-style: none;
+        text-decoration: none;
+        position: absolute;
+        border: #983737 solid 3px;
+      }
+      .likes:hover {
+        background-color: #983737;
+        color: #fff;
+      }
+    }
+    .new-btn {
+      width: 25%;
+      height: 100%;
+      position: relative;
+      .new {
+        font-size: 25px;
+        font-weight: bold;
+        padding-left:30%;
+        padding-right: 28%;
+        margin-left: 45px;
+        background-color: white;
+        color: #983737;
+        border-style: none;
+        text-decoration: none;
+        position: absolute;
+        border: #983737 solid 3px;
+      }
+      .new:hover {
+        background-color: #983737;
+        color: #fff;
+      }
+    }
   }
 }
 
@@ -76,7 +239,7 @@
       border-left: #983737c4 5px ridge;
       border-right: #983737c4 5px ridge;
       .search-box {
-        height: 75px;
+        height: 55px;
         width: 75%;
         margin-left: 20px;
         margin-top: 40px;
@@ -84,12 +247,13 @@
         position: relative;
         .form {
           width: 80%;
-          font-size: 43px;
+          font-size: 30px;
         }
         .btn {
           font-size: 20px;
           font-weight: bold;
-          padding: 14px 30px;
+          padding: 6px 25px;
+          margin-left: 10px;
           background-color: #983737;
           color: white;
           border-style: none;
