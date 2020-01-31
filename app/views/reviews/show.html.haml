@@ -30,7 +30,8 @@
           .like-btn
             = link_to "お気に入り", edit_review_path, class: :like
         - else user_signed_in?
-          = link_to "お気に入り登録をするにはログインしてください", new_user_session_path, class: :login
+          .login-btn
+            = link_to "お気に入り登録をするにはログインしてください", new_user_session_path, class: :login
 .showMain
   .review
     .review__text 
