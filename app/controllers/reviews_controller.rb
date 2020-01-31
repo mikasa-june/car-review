@@ -35,6 +35,10 @@ class ReviewsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @reviews = Review.search(params[:keyword])
+  end
+
   private
   # 暫定的にtag_idを1としている
   def review_params
