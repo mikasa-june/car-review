@@ -15,7 +15,7 @@
     }
     .top__items {
       width: 60%;
-      height: 280px;
+      height: 30%;
       .tag {
         display: flex;
         &-list {
@@ -41,11 +41,13 @@
         }
       }
       .top__items--title {
+        // background-color: red;
         .title__name {
           position: relative;
           padding: 0.25em 0;
           font-size: 50px;
           color: #000000;
+          font-weight: bold;
         }
         .title__name:after {
           content: "";
@@ -63,6 +65,7 @@
     }
     .top__items--btn {
       display: flex;
+      height: 50%;
       .edit-btn {
         // background-color: pink;
         width: 130px;
@@ -140,24 +143,30 @@
           color: #fff;
         }
       }
-      .login {
-        font-size: 32px;
-        font-weight: bold;
-        padding: 25px 39px;
-        background-color: white;
-        color: #983737;
-        border-style: none;
-        text-decoration: none;
-        position: absolute;
-        border: #983737 solid 3px;
-        border-radius: 40px;
-        box-shadow: 2px 2px 3px 1px #666;
-        -moz-box-shadow: 2px 2px 3px 1px #666;
-        -webkit-box-shadow: 2px 2px 3px 1px #666;
-      }
-      .login:hover {
-        background-color: #983737;
-        color: #fff;
+      .login-btn {
+        width: 800px;
+        height: 100px;
+        margin-left: 10px;
+        position: relative;
+        .login {
+          font-size: 32px;
+          font-weight: bold;
+          padding: 25px 39px;
+          background-color: white;
+          color: #983737;
+          border-style: none;
+          text-decoration: none;
+          position: absolute;
+          border: #983737 solid 3px;
+          border-radius: 40px;
+          box-shadow: 2px 2px 3px 1px #666;
+          -moz-box-shadow: 2px 2px 3px 1px #666;
+          -webkit-box-shadow: 2px 2px 3px 1px #666;
+        }
+        .login:hover {
+          background-color: #983737;
+          color: #fff;
+        }
       }
     }
   }

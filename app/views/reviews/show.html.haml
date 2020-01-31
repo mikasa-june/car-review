@@ -21,15 +21,17 @@
           投稿者：
           = @review.user.name
       .top__items--btn
-        - if user_signed_in?
+        - if user_signed_in? && @review.user_id == current_user.id
           .edit-btn
             = link_to "編集", edit_review_path, class: :edit
           .delete-btn
             = link_to "削除", review_path, method: :delete, class: :delete
+        -elsif user_signed_in? && @review.user_id != current_user.id
           .like-btn
             = link_to "お気に入り", edit_review_path, class: :like
-        - else
-          = link_to "お気に入り登録をするにはログインしてください", new_user_session_path, class: :login
+        - else user_signed_in?
+          .login-btn
+            = link_to "お気に入り登録をするにはログインしてください", new_user_session_path, class: :login
 .showMain
   .review
     .review__text 
