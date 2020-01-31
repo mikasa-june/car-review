@@ -1,25 +1,38 @@
 .header
   .header__container
-    .header-fix
-      -# = current_user.name
-      -# どこかにログイン中のユーザー名を記載
+    - if user_signed_in?
+      .user-fix
+        ユーザー：
+        = link_to truncate(current_user.name, length: 13), root_path, class: :user_name
+    -else
+      .header-fix3
     .title
       = link_to "car Reviews", root_path, class: :title__name
-    .user-fix
+    .header-fix1
       - if user_signed_in?
-        -# = link_to @review.user.name, root_path, class: :user_name
-        = link_to "LOGOUT", destroy_user_session_path, method: :delete, class: :logout
+        .header-fix2
+        .logout__btn
+          = link_to "LOGOUT", destroy_user_session_path, method: :delete, class: :logout
       - else
-        = link_to "LOGIN", new_user_session_path, class: :login
+        .user__name--fix2
+        .login__btn
+          = link_to "LOGIN", new_user_session_path, class: :login
   .menu-bar
     - if user_signed_in?
-      = link_to root_path, class: :my_link do
-        マイページ
-      = link_to root_path, class: :show_link do
-        投稿一覧
-      = link_to new_review_path, class: :post do
-        投稿する
-      = link_to root_path, class: :likes do
-        お気に入り 
+      .my_link-btn
+        = link_to root_path, class: :my_link do
+          マイページ
+      .show_link-btn
+        = link_to root_path, class: :show_link do
+          投稿一覧
+      .post-btn
+        = link_to new_review_path, class: :post do
+          投稿する
+      .likes-btn
+        = link_to root_path, class: :likes do
+          お気に入り 
     - else
-      = link_to "新規登録", new_user_registration_path
+      .header-fix4
+      .new-btn
+        = link_to new_user_registration_path, class: :new do
+          新規登録
