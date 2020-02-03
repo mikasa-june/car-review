@@ -1,0 +1,47 @@
+= render "reviews/header"
+.mypage
+  .mypage__name
+    = truncate(@user.name, length: 18)
+    %span
+      さんのマイページ
+  .review__box
+    .review__box--review
+      .name
+        投稿
+
+      .search__results--box
+        - @reviews.each do |review|
+          .result
+            .result__image
+              .resul__image--box
+                = link_to (image_tag review.image, height: '90px', width: '160px', class: 'test' if review.image.present?), review_path(review.id)
+            .result__text
+              .result__text--title
+                = link_to truncate(review.title, length: 10), review_path(review.id), class: :title
+              .result__text--main
+                = truncate(review.text, length: 70)
+                .show_link-box
+                  = link_to "続きはここをクリック", review_path(review.id), class: :show_link
+              .result__text--date
+                = review.created_at
+
+    .review__box--fav
+      .name
+        お気に入り
+      .search__results--box
+        - @reviews.each do |review|
+          .result
+            .result__image
+              .resul__image--box
+                = link_to (image_tag review.image, height: '90px', width: '160px', class: 'test' if review.image.present?), review_path(review.id)
+            .result__text
+              .result__text--title
+                = link_to truncate(review.title, length: 10), review_path(review.id), class: :title
+              .result__text--main
+                = truncate(review.text, length: 70)
+                .show_link-box
+                  = link_to "続きはここをクリック", review_path(review.id), class: :show_link
+              .result__text--date
+                = review.created_at
+
+= render "reviews/footer"

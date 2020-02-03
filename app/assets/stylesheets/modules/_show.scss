@@ -91,7 +91,6 @@
         }
       }
       .delete-btn {
-        // background-color: pink;
         width: 130px;
         height: 100px;
         margin-left: 10px;
@@ -196,7 +195,7 @@
   &__title {
     font-size: 30px;
     font-weight: bold;
-    color: brown;
+    color: rgba(0, 0, 0, 0.728);
     margin-left: 5px;
   }
   .bottom__comment--form {
