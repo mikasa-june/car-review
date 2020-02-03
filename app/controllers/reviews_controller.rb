@@ -16,7 +16,8 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @comment = Comment.new
     @comments = @review.comments.includes(:user).order("created_at DESC")
-
+    @like_reviews = LikeReview.where(review_id: [@review.id])
+    @like_review_count = @like_reviews.count
   end
 
   def destroy

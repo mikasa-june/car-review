@@ -14,7 +14,9 @@
     border: #983737c4 3px solid;
     text-align: center;
     line-height: 150%;
-    font-size: 30px;
+    font-size: 170%;
+    font-weight: bolder;
+    color: rgba(0, 0, 0, 0.755);
     background-color: white;
     span {
       color: #983737c4;
@@ -46,6 +48,7 @@
         text-align: center;
         font-size: 180%;
         line-height: 180%;
+        color: rgba(0, 0, 0, 0.844);
       }
       
       .search__results--box{
@@ -116,6 +119,7 @@
         text-align: center;
         font-size: 180%;
         line-height: 180%;
+        color: rgba(0, 0, 0, 0.844);
       }
       
       .search__results--box{

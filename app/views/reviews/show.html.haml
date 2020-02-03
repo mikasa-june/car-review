@@ -14,6 +14,12 @@
           タグ3
         .tag-list
           タグ4
+        .like-count
+          %span
+            お気に入り
+          %i.fas.fa-star
+          x
+          = @like_review_count
       .top__items--title
         .title__name
           = @review.title
@@ -28,7 +34,11 @@
             = link_to "削除", review_path, method: :delete, class: :delete
         -elsif user_signed_in? && @review.user_id != current_user.id
           .like-btn
-            = link_to "お気に入り", edit_review_path, class: :like
+            -# = link_to "お気に入り", edit_review_path, class: :like
+            - if !LikeReview.exists?(user_id: current_user.id, review_id: @review.id)
+              = link_to "お気に入り",review_add_path(@review),method: :post, class: :like 
+            - else
+              = link_to "お気に入り解除",review_add_path(@review),method: :delete, class: :like
         - else user_signed_in?
           .login-btn
             = link_to "お気に入り登録をするにはログインしてください", new_user_session_path, class: :login
