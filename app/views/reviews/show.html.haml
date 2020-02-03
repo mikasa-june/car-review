@@ -19,7 +19,7 @@
           = @review.title
         .title__user
           投稿者：
-          = @review.user.name
+          = link_to truncate(@review.user.name, length: 20), "/users/#{@review.user_id}"
       .top__items--btn
         - if user_signed_in? && @review.user_id == current_user.id
           .edit-btn
@@ -57,7 +57,7 @@
         - @comments.each do |comment| 
           .comment__list--box
             .user-name
-              = link_to comment.user.name, "/users/#{comment.user_id}" 
+              = link_to truncate(comment.user.name, length: 20), "/users/#{comment.user_id}" 
             .date
               = comment.created_at
           .comment

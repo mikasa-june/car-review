@@ -12,6 +12,7 @@
       margin-top: 5px;
       height: 80%;
       font-size: 15px;
+      margin-left: 10px;
       border: #983737 solid 3px;
       border-radius: 10px;
       box-shadow: 2px 2px 3px 1px #666;
@@ -270,6 +271,8 @@
           color: #983737;
         }
       }
+
+      // ここからレビュー
       .search__results--box{
         width: 95%;
         height: calc( 100% - 135px );
@@ -318,6 +321,8 @@
         }
       }
     }
+    // ここまでレビュー
+
     &--right {
       background-color: papayawhip;
       width: 30%;
@@ -332,9 +337,8 @@
     }
   }
 }
-
 .footer {
-  background-color: salmon;
+  background-image: url("tire.jpeg");
   height: 80px;
   width: 100%;
   .tweet-btn {
