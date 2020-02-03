@@ -1,9 +1,12 @@
 = render "reviews/header"
 .mypage
   .mypage__name
-    = truncate(@user.name, length: 18)
-    %span
-      さんのマイページ
+    - if @user.name == current_user.name
+      あなたのマイページ
+    - else
+      = truncate(@user.name, length: 18)
+      %span
+        さんのマイページ
   .review__box
     .review__box--review
       .name
@@ -29,7 +32,7 @@
       .name
         お気に入り
       .search__results--box
-        - @reviews.each do |review|
+        - @num.each do |review|
           .result
             .result__image
               .resul__image--box

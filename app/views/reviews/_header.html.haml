@@ -2,8 +2,9 @@
   .header__container
     - if user_signed_in?
       .user-fix
-        ユーザー：
-        = link_to truncate(current_user.name, length: 13), root_path, class: :user_name
+        -# = link_to truncate(current_user.name, length: 13), root_path, class: :user_name
+        = link_to "ユーザー：#{truncate(current_user.name, length: 13)}", "/users/#{current_user.id}", class: :user_name
+
     -else
       .header-fix3
     .title

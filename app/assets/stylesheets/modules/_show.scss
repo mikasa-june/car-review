@@ -18,8 +18,8 @@
       height: 30%;
       .tag {
         display: flex;
+        // background-color: green;
         &-list {
-          background-color: green;
           height: 40px;
           width: 90px;
           margin-right: 10px;
@@ -38,6 +38,18 @@
           content: '●';
           color: #7c7667;
           margin-right: 8px;
+        }
+        .like-count {
+          // background-color: lightsalmon;
+          line-height: 100%;
+          font-size: 35px;
+          margin-left: 10%;
+          span {
+            font-size: 20px;
+          }
+          .fas {
+            color: #1be7f5;
+          }
         }
       }
       .top__items--title {
