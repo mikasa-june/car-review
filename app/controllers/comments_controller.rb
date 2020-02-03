@@ -6,7 +6,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    comment = Comment.find()
+    # review = Review.find(params[:id])
+    # comment = review.comment
+    # comment.destroy
+    # redirect @review
   end
 
   private

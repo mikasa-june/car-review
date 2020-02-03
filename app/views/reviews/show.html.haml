@@ -70,6 +70,11 @@
               = link_to truncate(comment.user.name, length: 20), "/users/#{comment.user_id}" 
             .date
               = comment.created_at
-          .comment
-            = comment.text 
+          .comment__list--bottom
+            .comment
+              = comment.text 
+            .delete__btn
+              %a{:href => "#"} 削除
+            .fav
+            -# = link_to "星", review_comment_add_path(@review, @comment), method: :post
 = render "footer"

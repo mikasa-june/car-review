@@ -6,7 +6,7 @@ class LikeReviewsController < ApplicationController
     if LikeReview.create(user_id: user.id, review_id: review.id)
       redirect_to review
     else
-      revirect_to root_url
+      redirect_to root_url
     end
   end
 
