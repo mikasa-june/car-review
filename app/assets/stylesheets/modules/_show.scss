@@ -306,11 +306,18 @@
           color: rgba(102, 102, 102, 0.652);
         }
       }
-      .comment {
-        font-size: 35px;
-        width: 92%;
-        margin: 0 auto;
-        padding-bottom: 10px;
+      &--bottom {
+        display: flex;
+        .comment {
+          font-size: 35px;
+          width: 92%;
+          margin: 0 auto;
+          padding-bottom: 10px;
+        }
+        .delete__btn {          
+        }
+        .fav {
+        }
       }
     }
   }
