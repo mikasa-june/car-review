@@ -51,7 +51,7 @@
     この投稿へのコメント
   .bottom__comment--form
     - if current_user
-      = form_with model: [@review, @comment], local: true do |form|
+      = form_with model: [@review, @comment], id: :f, local: true do |form|
         .form__container
           .form
             = form.text_field :text, placeholder: "コメントする", row: 2 
@@ -65,6 +65,8 @@
     .comment__list
       - if @comments
         - @comments.each do |comment| 
+
+
           .comment__list--box
             .user-name
               = link_to truncate(comment.user.name, length: 20), "/users/#{comment.user_id}" 
@@ -77,4 +79,6 @@
               %a{:href => "#"} 削除
             .fav
             -# = link_to "星", review_comment_add_path(@review, @comment), method: :post
+
+            
 = render "footer"
