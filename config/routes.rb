@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :reviews do
     post 'add' => 'like_reviews#create'
     delete '/add' => 'like_reviews#destroy'
+    get '/post/hashtag/:name', to: "reviews#hashtag"
     resources :comments, only: [:create, :destroy] do
       post 'add' => 'like_comments#create'
       delete '/add' => 'like_comments#destroy'

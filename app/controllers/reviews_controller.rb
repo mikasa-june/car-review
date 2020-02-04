@@ -40,6 +40,15 @@ class ReviewsController < ApplicationController
     @reviews = Review.search(params[:keyword])
   end
 
+  def hashtag
+    @user = current_user
+    @tag = Hashtag.find_by(hashname: params[:name])
+    @reviews = @tag.reviews.build
+    @review  = @tag.reviews.page(params[:page])
+    @comment    = Comment.new
+    @comments   = @reviews.comments
+  end
+
   private
   # 暫定的にtag_idを1としている
   def review_params
