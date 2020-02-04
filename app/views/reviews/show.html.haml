@@ -51,12 +51,12 @@
     この投稿へのコメント
   .bottom__comment--form
     - if current_user
-      = form_with model: [@review, @comment], id: :f, local: true do |form|
+      = form_with(model: [@review, @comment], local: true, id: "new_comment") do |form|
         .form__container
           .form
-            = form.text_field :text, placeholder: "コメントする", row: 2 
+            = form.text_field :text, placeholder: "コメントする", row: 2, class: :textbox
           .send-btn
-            = form.submit "投稿" 
+            = form.submit "投稿", class: :submit
     - else
       = link_to "コメントを投稿するにはログインしてください", new_user_session_path, class: :login
   .bottom__comment--list

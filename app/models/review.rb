@@ -1,7 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :user
-  has_many :comments
-  has_many :like_reviews
+  has_many :comments, dependent: :destroy
+  has_many :like_reviews, dependent: :destroy
   has_many :users, through: :like_reviews
 
   validates :title, presence: true
