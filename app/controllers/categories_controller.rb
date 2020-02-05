@@ -1,7 +1,10 @@
 class CategoriesController < ApplicationController
 
   def index
-    
+    @categories1 = Category.where(group_id: 0)
+    @categories2 = Category.where(group_id: 1)
+    @categories3 = Category.where(group_id: 2)
+    @categories4 = Category.where(group_id: 3)
   end
   
   def new
