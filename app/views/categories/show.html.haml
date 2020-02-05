@@ -1,0 +1,41 @@
+-# カテゴリー
+-# = @category.name
+-# のショー
+-# - @reviews.each do |review|
+-#   = review.title
+= render "reviews/header"
+.categoryShow
+  .title-box
+    カテゴリー
+    - if @category.group_id == 0
+      国名：「
+    - elsif @category.group_id == 1
+      メーカー：「
+    - elsif @category.group_id == 2
+      type：「
+    - elsif @category.group_id == 3
+      その他：「
+    -else 
+      error
+    %span
+      = @category.name
+    」の投稿
+  .search-box
+    .search__results--box
+      - @reviews.each do |review|
+        .result
+          .result__image
+            .resul__image--box
+              = link_to (image_tag review.image, height: '135px', width: '240px', class: 'test' if review.image.present?), review_path(review.id)
+          .result__text
+            .result__text--title
+              = link_to truncate(review.title, length: 13), review_path(review.id), class: :title
+            .result__text--main
+              = truncate(review.text, length: 200)
+              .show_link-box
+                = link_to "続きはここをクリック", review_path(review.id), class: :show_link
+            .result__text--date
+              = review.created_at
+
+
+= render "reviews/footer"

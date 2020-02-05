@@ -6,6 +6,10 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    @category1 = Category.where(group_id: 0)
+    @category2 = Category.where(group_id: 1)
+    @category3 = Category.where(group_id: 2)
+    @category4 = Category.where(group_id: 3)
   end
 
   def create
@@ -18,6 +22,12 @@ class ReviewsController < ApplicationController
     @comments = @review.comments.includes(:user).order("created_at DESC")
     @like_reviews = LikeReview.where(review_id: [@review.id])
     @like_review_count = @like_reviews.count
+    cattag = Category.joins(:category_reviews).where({category_reviews: {review_id: [@review.id]}})
+    # このレビューに付与されているカテゴリーを全て取得
+    @tag1 = cattag.find_by(group_id: 0)
+    @tag2 = cattag.find_by(group_id: 1)
+    @tag3 = cattag.find_by(group_id: 2)
+    @tag4 = cattag.find_by(group_id: 3)
   end
 
   def destroy
