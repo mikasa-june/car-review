@@ -11,6 +11,10 @@ class User < ApplicationRecord
   has_many :like_comments
   has_many :fav_comments, through: :like_comments, source: :comment
 
+  validates :username,
+    uniqueness: { case_sensitive: :false },
+    length: { minimum: 4, maximum: 20 }
+
   def like(review)
     like_reviews.find_or_create_by(review_id: review.id)
   end
