@@ -6,26 +6,35 @@
         = image_tag @review.image, height: '270px', width: '480px', class: 'image' if @review.image.present?
     .top__items
       .tag
-        .tag-list
-          タグ1
-        .tag-list
-          タグ2
-        .tag-list
-          タグ3
-        .tag-list
-          タグ4
+        - if @tag1
+          .tag-list
+            .tag-list_name
+              = link_to @tag1.name, category_path(@tag1.id),class: :tag__name
+        - if @tag2
+          .tag-list
+            .tag-list_name
+              = link_to @tag2.name, category_path(@tag2.id),class: :tag__name
+        - if @tag3
+          .tag-list
+            .tag-list_name
+              = link_to @tag3.name, category_path(@tag3.id),class: :tag__name
+        -if @tag4
+          .tag-list
+            .tag-list_name
+              = link_to @tag4.name, category_path(@tag4.id),class: :tag__name
         .like-count
           %span
             お気に入り
-          %i.fas.fa-star
-          x
-          = @like_review_count
+          .counter
+            %i.fas.fa-star
+            x
+            = @like_review_count
       .top__items--title
         .title__name
           = @review.title
         .title__user
           投稿者：
-          = link_to truncate(@review.user.name, length: 20), "/users/#{@review.user_id}"
+          = link_to truncate(@review.user.name, length: 20), "/users/#{@review.user_id}",class: :reviewer
       .top__items--btn
         - if user_signed_in? && @review.user_id == current_user.id
           .edit-btn
