@@ -38,6 +38,10 @@ class ReviewsController < ApplicationController
 
   def edit
     @review = Review.find(params[:id])
+    @category1 = Category.where(group_id: 0)
+    @category2 = Category.where(group_id: 1)
+    @category3 = Category.where(group_id: 2)
+    @category4 = Category.where(group_id: 3)
   end
 
   def update

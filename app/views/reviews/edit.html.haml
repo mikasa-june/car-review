@@ -10,6 +10,37 @@
         = form.text_field :image, placeholder: "Image Url", class: 'image'
       .main__form--text
         = form.text_area :text, placeholder: "text" , rows: "10", class: 'text' 
+      .check
+        %p カテゴリーを設定してください(それぞれ1つずつ・任意)
+        .group_top
+          .group_1
+            %p 国
+            %a.icon1{"data-target" => "category_list1"}
+              =icon("fas","comment-dots")
+            #category_list1
+              .form
+                = form.collection_check_boxes :category_ids, @category1, :id, :name
+          .group_2
+            %p メーカー
+            %a.icon2{"data-target" => "category_list2"}
+              =icon("fas","comment-dots")
+            #category_list2
+              .form
+                = form.collection_check_boxes :category_ids, @category2, :id, :name
+          .group_3
+            %p タイプ
+            %a.icon3{"data-target" => "category_list3"}
+              =icon("fas","comment-dots")
+            #category_list3
+              .form
+                = form.collection_check_boxes :category_ids, @category3, :id, :name
+          .group_4
+            %p その他
+            %a.icon4{"data-target" => "category_list4"}
+              =icon("fas","comment-dots")
+            #category_list4
+              .form
+                = form.collection_check_boxes :category_ids, @category4, :id, :name
       .main__form--send
         = form.submit "SEND", class: 'send'
 = render "footer"
