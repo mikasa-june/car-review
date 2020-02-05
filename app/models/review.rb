@@ -4,6 +4,9 @@ class Review < ApplicationRecord
   has_many :like_reviews, dependent: :destroy
   has_many :users, through: :like_reviews
 
+  has_many :category_reviews, dependent: :destroy
+  has_many :categories, through: :category_reviews
+
   validates :title, presence: true
   validates :image, presence: true
   validates :text, presence: true

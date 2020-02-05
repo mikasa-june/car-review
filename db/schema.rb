@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_03_082903) do
+ActiveRecord::Schema.define(version: 2020_02_04_110119) do
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
+  end
+
+  create_table "category_reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "review_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_category_reviews_on_category_id"
+    t.index ["review_id"], name: "index_category_reviews_on_review_id"
+  end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text", null: false
@@ -45,7 +61,6 @@ ActiveRecord::Schema.define(version: 2020_02_03_082903) do
     t.text "text", null: false
     t.text "image"
     t.integer "user_id", null: false
-    t.integer "tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,6 +79,8 @@ ActiveRecord::Schema.define(version: 2020_02_03_082903) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "category_reviews", "categories"
+  add_foreign_key "category_reviews", "reviews"
   add_foreign_key "like_comments", "comments"
   add_foreign_key "like_comments", "users"
   add_foreign_key "like_reviews", "reviews"

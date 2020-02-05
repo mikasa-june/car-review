@@ -43,6 +43,6 @@ class ReviewsController < ApplicationController
   private
   # 暫定的にtag_idを1としている
   def review_params
-    params.require(:review).permit(:title, :text, :image).merge(user_id: current_user.id, tag_id: 1)
+    params.require(:review).permit(:title, :text, :image, category_ids: []).merge(user_id: current_user.id)
   end
 end
