@@ -7,7 +7,9 @@
       .main__form--title
         = form.text_field :title, placeholder: "title", class: 'title'
       .main__form--image
-        = form.text_field :image, placeholder: "Image Url", class: 'image'
+        = form.label :image do
+          = icon('fas', 'image')
+        = form.file_field :image, placeholder: "Image Url", class: 'image'
       .main__form--text
         = form.text_area :text, placeholder: "text" , rows: "10", class: 'text' 
       .check
@@ -20,13 +22,42 @@
             #category_list1
               .form
                 = form.collection_check_boxes :category_ids, @category1, :id, :name
+
+
           .group_2
             %p メーカー
             %a.icon2{"data-target" => "category_list2"}
               =icon("fas","comment-dots")
             #category_list2
-              .form
-                = form.collection_check_boxes :category_ids, @category2, :id, :name
+              .japan-box
+                %p 日本
+                %a.icon2{"data-target" => "category_list11"}
+                  =icon("fas","comment-dots")
+                #category_list11
+                  .form
+                    = form.collection_check_boxes :category_ids, @maker1, :id, :name
+              .europe-box
+                %p 欧州
+                %a.icon2{"data-target" => "category_list12"}
+                  =icon("fas","comment-dots")
+                #category_list12
+                  .form
+                    = form.collection_check_boxes :category_ids, @maker2, :id, :name
+              .north_america-box
+                %p 北米
+                %a.icon2{"data-target" => "category_list13"}
+                  =icon("fas","comment-dots")
+                #category_list13
+                  .form
+                    = form.collection_check_boxes :category_ids, @maker3, :id, :name
+              .other-box
+                %p その他
+                %a.icon2{"data-target" => "category_list14"}
+                  =icon("fas","comment-dots")
+                #category_list14
+                  .form
+                    = form.collection_check_boxes :category_ids, @maker4, :id, :name
+
           .group_3
             %p タイプ
             %a.icon3{"data-target" => "category_list3"}

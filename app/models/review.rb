@@ -10,6 +10,8 @@ class Review < ApplicationRecord
   validates :title, presence: true, length: { maximum: 60 }
   validates :image, presence: true
   validates :text, presence: true
+
+  mount_uploader :image, ImageUploader
   
   def self.search(search)
     if search

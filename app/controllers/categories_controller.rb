@@ -2,9 +2,13 @@ class CategoriesController < ApplicationController
 
   def index
     @categories1 = Category.where(group_id: 0)
-    @categories2 = Category.where(group_id: 1)
     @categories3 = Category.where(group_id: 2)
     @categories4 = Category.where(group_id: 3)
+    # @maker1=日本メーカー
+    @maker1 = Category.where(group_id: 11)
+    @maker2 = Category.where(group_id: 12)
+    @maker3 = Category.where(group_id: 13)
+    @maker4 = Category.where(group_id: 14)
   end
   
   def new
