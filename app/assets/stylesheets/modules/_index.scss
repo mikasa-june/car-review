@@ -342,14 +342,19 @@
   background-image: url("tire.jpeg");
   height: 80px;
   width: 100%;
-  .tweet-btn {
+  .tweet--btn {
     height: 50px;
     width: 50px;
-    background-color: skyblue;
+    // background-color: black;
     float: right;
     margin: 30px 20px 0 0;
-    p {
-      font-size: 10px;
+    &__box {
+      margin: 0 auto;
+    }
+    i {
+      font-size: 40px;
+      color: skyblue;
+      margin: 0 auto;
     }
   }
 }

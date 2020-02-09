@@ -1,7 +1,8 @@
 class ReviewsController < ApplicationController
 
   def index
-    @reviews = Review.all.order("updated_at DESC")
+    @reviews = Review.all.order("updated_at DESC").limit(40)
+    @sidereviews = Review.order("RAND()").limit(3)
   end
 
   def new
