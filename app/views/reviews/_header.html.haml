@@ -25,12 +25,12 @@
           マイページ
       .show_link-btn
         = link_to root_path, class: :show_link do
-          投稿一覧
+          最新投稿
       .post-btn
         = link_to new_review_path, class: :post do
           投稿する
       .likes-btn
-        = link_to new_category_path, class: :likes do
+        = link_to categories_path, class: :likes do
           カテゴリー
     - else
       .header-fix4

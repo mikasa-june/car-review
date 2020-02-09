@@ -15,7 +15,6 @@ $(function(){
           ${comment.text}
         </div>
         <div class="delete__btn">
-          <a href="#">削除</a>
         </div>
         <div class="fav">
         </div>

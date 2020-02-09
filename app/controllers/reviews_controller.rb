@@ -1,15 +1,20 @@
 class ReviewsController < ApplicationController
 
   def index
-    @reviews = Review.all.order("created_at DESC")
+    @reviews = Review.all.order("updated_at DESC").limit(40)
+    @sidereviews = Review.order("RAND()").limit(3)
   end
 
   def new
     @review = Review.new
     @category1 = Category.where(group_id: 0)
-    @category2 = Category.where(group_id: 1)
     @category3 = Category.where(group_id: 2)
     @category4 = Category.where(group_id: 3)
+
+    @maker1 = Category.where(group_id: 11)
+    @maker2 = Category.where(group_id: 12)
+    @maker3 = Category.where(group_id: 13)
+    @maker4 = Category.where(group_id: 14)
   end
 
   def create
@@ -25,9 +30,13 @@ class ReviewsController < ApplicationController
     cattag = Category.joins(:category_reviews).where({category_reviews: {review_id: [@review.id]}})
     # このレビューに付与されているカテゴリーを全て取得
     @tag1 = cattag.find_by(group_id: 0)
-    @tag2 = cattag.find_by(group_id: 1)
     @tag3 = cattag.find_by(group_id: 2)
     @tag4 = cattag.find_by(group_id: 3)
+
+    @maker1 = cattag.find_by(group_id: 11)
+    @maker2 = cattag.find_by(group_id: 12)
+    @maker3 = cattag.find_by(group_id: 13)
+    @maker4 = cattag.find_by(group_id: 14)
   end
 
   def destroy
@@ -38,6 +47,14 @@ class ReviewsController < ApplicationController
 
   def edit
     @review = Review.find(params[:id])
+    @category1 = Category.where(group_id: 0)
+    @category3 = Category.where(group_id: 2)
+    @category4 = Category.where(group_id: 3)
+
+    @maker1 = Category.where(group_id: 11)
+    @maker2 = Category.where(group_id: 12)
+    @maker3 = Category.where(group_id: 13)
+    @maker4 = Category.where(group_id: 14)
   end
 
   def update

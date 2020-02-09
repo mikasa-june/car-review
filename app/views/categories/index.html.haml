@@ -1,0 +1,77 @@
+
+= render "reviews/header"
+.categoryIndex
+  .category__box
+    %p 見たいカテゴリーを選択してください
+    .top__box
+      .box1
+        %p 国
+        %a.icon1{"data-target" => "category_list1"}
+          =icon("fas","comment-dots")
+        #category_list1
+          .form
+            - @categories1.each do |cat1|
+              .cate__name
+                = link_to cat1.name, category_path(cat1.id), class: :category__name
+      .box2
+        %p メーカー
+        %a.icon1{"data-target" => "category_list2"}
+          =icon("fas","comment-dots")
+        #category_list2
+          .japan-box
+            %p 日本
+            %a.icon1{"data-target" => "category_list11"}
+              =icon("fas","comment-dots")
+              #category_list11
+                .form
+                  - @maker1.each do |mak1|
+                    .cate__name
+                      = link_to mak1.name, category_path(mak1.id), class: :category__name
+          .europe-box
+            %p 欧州
+            %a.icon1{"data-target" => "category_list12"}
+              =icon("fas","comment-dots")
+              #category_list12
+                .form
+                  - @maker2.each do |mak2|
+                    .cate__name
+                      = link_to mak2.name, category_path(mak2.id), class: :category__name
+          .noth_america-box
+            %p 北米
+            %a.icon1{"data-target" => "category_list13"}
+              =icon("fas","comment-dots")
+              #category_list13
+                .form
+                  - @maker3.each do |mak3|
+                    .cate__name
+                      = link_to mak3.name, category_path(mak3.id), class: :category__name
+          .other-box
+            %p その他メーカー
+            %a.icon1{"data-target" => "category_list14"}
+              =icon("fas","comment-dots")
+              #category_list14
+                .form
+                  - @maker4.each do |mak4|
+                    .cate__name
+                      = link_to mak4.name, category_path(mak4.id), class: :category__name
+
+    .bottom__box
+      .box3
+        %p type
+        %a.icon1{"data-target" => "category_list3"}
+          =icon("fas","comment-dots")
+        #category_list3
+          .form
+            - @categories3.each do |cat3|
+              .cate__name
+                = link_to cat3.name, category_path(cat3.id), class: :category__name
+      .box4
+        %p その他
+        %a.icon1{"data-target" => "category_list4"}
+          =icon("fas","comment-dots")
+        #category_list4
+          .form
+            - @categories4.each do |cat4|
+              .cate__name
+                = link_to cat4.name, category_path(cat4.id), class: :category__name
+= render "reviews/footer"

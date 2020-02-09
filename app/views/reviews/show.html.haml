@@ -3,17 +3,24 @@
   .top-container
     .top__picture
       .top__picture--image
-        = image_tag @review.image, height: '270px', width: '480px', class: 'image' if @review.image.present?
+        = image_tag @review.image.url, height: '270px', width: '480px', class: 'image' if @review.image.present?
     .top__items
       .tag
         - if @tag1
           .tag-list
             .tag-list_name
               = link_to @tag1.name, category_path(@tag1.id),class: :tag__name
-        - if @tag2
+        - if @maker1 or @maker2 or @maker3 or @maker4
           .tag-list
             .tag-list_name
-              = link_to @tag2.name, category_path(@tag2.id),class: :tag__name
+              - if @maker1
+                = link_to @maker1.name, category_path(@maker1.id),class: :tag__name
+              - if @maker2
+                = link_to @maker2.name, category_path(@maker2.id),class: :tag__name
+              - if @maker3
+                = link_to @maker3.name, category_path(@maker3.id),class: :tag__name
+              - if @maker4
+                = link_to @maker4.name, category_path(@maker4.id),class: :tag__name
         - if @tag3
           .tag-list
             .tag-list_name
@@ -85,7 +92,7 @@
             .comment
               = comment.text 
             .delete__btn
-              %a{:href => "#"} 削除
+              -# %a{:href => "#"} 削除
             .fav
             -# = link_to "星", review_comment_add_path(@review, @comment), method: :post
 

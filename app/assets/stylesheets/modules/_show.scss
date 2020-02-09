@@ -22,7 +22,7 @@
         width: 100%;
         &-list {
           height: 40px;
-          width: 15%;
+          width: 18%;
           margin-right: 10px;
           // text-align: center;
           line-height: 40px;
@@ -31,13 +31,16 @@
           display: inline-block;/*おまじない*/
           line-height: 200%;/*行高*/
           background: #ebe0c5;/*背景色*/
-          vertical-align: middle;
+          // vertical-align: middle;
           border-radius: 25px 0px 0px 25px;/*左側の角を丸く*/
           &_name {
-            font-size: 15px;
+            font-size: 13px;
             .tag__name {
               text-decoration: none;
               color: rgba(0, 0, 0, 0.652);
+            }
+            .tag__name:hover {
+              color: rgb(0, 178, 210);
             }
           }
         }

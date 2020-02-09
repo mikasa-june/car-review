@@ -1,3 +1,6 @@
 .footer
-  .tweet-btn
-    %p ツイートボタン
+  .tweet--btn
+    = link_to "https://twitter.com/share?text=car_reviewサイトを閲覧中！！&url=https://www.formula1.com&hashtags=,", :onclick => "window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;", :rel => "nofollow" do
+      .tweet--btn__box
+        %i.fab.fa-twitter
+  
