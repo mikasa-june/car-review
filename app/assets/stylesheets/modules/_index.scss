@@ -325,15 +325,27 @@
     // ここまでレビュー
 
     &--right {
-      background-color: papayawhip;
+      // background-color: rgba(118, 118, 118, 0.152);
       width: 30%;
       height: 100%;
+
       .random-box {
-        background-color: royalblue;
+        background-color: rgba(118, 118, 118, 0.152);
         width: 60%;
-        height: 60%;
+        height: 80%;
         margin: 0 auto;
         margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        border: #983737c4 3px solid;
+        p {
+          margin-top: 20px;
+          font-weight: bold;
+        }
+        .test {
+          border: #983737c4 3px solid;
+        }
       }
     }
   }

@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all.order("updated_at DESC").limit(40)
-    @sidereviews = Review.order("RAND()").limit(3)
+    @sidereviews = Review.order("RAND()").limit(5)
   end
 
   def new
@@ -18,7 +18,13 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    Review.create(review_params)
+    review = Review.create(review_params)
+    if review.save
+      redirect_to root_path, notice: '投稿が完了しました'
+    else
+      flash[:notice] = '投稿が失敗しました'
+      redirect_to new_review_path
+    end
   end
 
   def show
@@ -42,6 +48,7 @@ class ReviewsController < ApplicationController
   def destroy
     review = Review.find(params[:id])
     review.destroy
+    flash[:notice] = '投稿を削除しました'
     redirect_to root_path
   end
 
@@ -60,15 +67,20 @@ class ReviewsController < ApplicationController
   def update
     review = Review.find(params[:id])
     review.update(review_params)
-    redirect_to root_path
+    if review.save
+      redirect_to review_path, notice: '編集が完了しました'
+    else
+      flash[:notice] = '編集が失敗しました'
+      redirect_to edit_review_path
+    end
   end
 
   def search
     @reviews = Review.search(params[:keyword])
+    @sidereviews = Review.order("RAND()").limit(5)
   end
 
   private
-  # 暫定的にtag_idを1としている
   def review_params
     params.require(:review).permit(:title, :text, :image, category_ids: []).merge(user_id: current_user.id)
   end

@@ -36,7 +36,7 @@
           .result
             .result__image
               .resul__image--box
-                = link_to (image_tag review.image, height: '90px', width: '160px', class: 'test' if review.image.present?), review_path(review.id)
+                = link_to (image_tag review.image.url, height: '90px', width: '160px', class: 'test' if review.image.present?), review_path(review.id)
             .result__text
               .result__text--title
                 = link_to truncate(review.title, length: 10), review_path(review.id), class: :title

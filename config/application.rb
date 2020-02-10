@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module CarReview
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.time_zone = 'Tokyo'
     config.load_defaults 5.2
     config.generators do |g|
       g.stylesheets false
@@ -21,5 +22,6 @@ module CarReview
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    config.i18n.default_locale = :ja
   end
 end
