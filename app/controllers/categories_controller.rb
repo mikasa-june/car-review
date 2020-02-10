@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @group = Group.new(group_params)
+    # @group = Group.new(group_params)
   end
 
   def show

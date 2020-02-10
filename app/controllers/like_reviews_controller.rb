@@ -4,6 +4,7 @@ class LikeReviewsController < ApplicationController
     user = current_user
     review = Review.find(params[:review_id])
     if LikeReview.create(user_id: user.id, review_id: review.id)
+      flash[:notice] = "#{review.title}をお気に入りに登録しました"
       redirect_to review
     else
       redirect_to root_url
@@ -15,6 +16,7 @@ class LikeReviewsController < ApplicationController
     review = Review.find(params[:review_id])
     if like_review = LikeReview.find_by(user_id: user.id, review_id: review.id)
       like_review.delete
+      flash[:notice] = "お気に入りを解除しました"
       redirect_to review
     else
       redirect_to root_path

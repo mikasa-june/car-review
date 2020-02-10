@@ -6,12 +6,13 @@
         = form_with url: search_reviews_path, method: :get, local: true do |form|
           = form.text_field :keyword, placeholder: "投稿を検索する", class: 'form'
           = form.submit "検索", class: 'btn'
+          
       .search__results--box
         - @reviews.each do |review|
           .result
             .result__image
               .resul__image--box
-                = link_to (image_tag review.image, height: '135px', width: '240px', class: 'test' if review.image.present?), review_path(review.id)
+                = link_to (image_tag review.image.url, height: '135px', width: '240px', class: 'test' if review.image.present?), review_path(review.id)
             .result__text
               .result__text--title
                 = link_to truncate(review.title, length: 13), review_path(review.id), class: :title
@@ -24,5 +25,7 @@
 
     .main__container--right
       .random-box
-        %p ランダムで4〜5個の投稿を表示
+        %p おすすめの投稿
+        - @sidereviews.each do |saide|
+          = link_to (image_tag saide.image.url, height: '90px', width: '160px', class: 'test' if saide.image.present?), review_path(saide.id) 
 = render "footer"
