@@ -21,7 +21,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @reviews = Review.joins(:category_reviews).where({category_reviews: {category_id: [@category.id]}})
+    @reviews = Review.joins(:category_reviews).where({category_reviews: {category_id: [@category.id]}}).order("updated_at DESC")
     # カテゴリーidが一致するレビューを全て取得
   end
 

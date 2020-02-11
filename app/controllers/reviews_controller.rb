@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :back_index, only: [:new, :edit, :destroy, :create, :update]
 
   def index
     @reviews = Review.all.order("updated_at DESC").limit(40)
@@ -83,5 +84,9 @@ class ReviewsController < ApplicationController
   private
   def review_params
     params.require(:review).permit(:title, :text, :image, category_ids: []).merge(user_id: current_user.id)
+  end
+
+  def back_index
+    redirect_to action: :index unless user_signed_in?
   end
 end
