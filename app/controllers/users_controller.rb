@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def show
     users = User.all
     @user = users.find(params[:id])
-    @reviews = @user.reviews
+    @reviews = @user.reviews.order("updated_at DESC")
 
     gets = LikeReview.where(user_id: [@user.id])
 

@@ -87,7 +87,7 @@
             .user-name
               = link_to truncate(comment.user.name, length: 20), "/users/#{comment.user_id}" 
             .date
-              = comment.created_at
+              = comment.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[comment.created_at.wday]})")
           .comment__list--bottom
             .comment
               = comment.text 

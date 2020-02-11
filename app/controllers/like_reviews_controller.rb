@@ -1,4 +1,5 @@
 class LikeReviewsController < ApplicationController
+  before_action :back_index, only: [:create, :destroy]
 
   def create
     user = current_user
@@ -23,4 +24,8 @@ class LikeReviewsController < ApplicationController
     end
   end
 
+  private
+  def back_index
+    redirect_to action: :index unless user_signed_in?
+  end
 end
