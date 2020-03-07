@@ -1,8 +1,7 @@
 $(function(){
   function buildHTML(comment){
     var html =
-      `
-      <div class="comment__list--box">
+      `<div class="comment__list--box">
         <div class="user-name">
           <a href="/users/${comment.user_id}">${comment.user_name}</a>                                    
         </div>
