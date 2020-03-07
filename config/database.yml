@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: car-review_production
-  username: car-review
-  password: <%= ENV['CAR-REVIEW_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5

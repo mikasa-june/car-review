@@ -1,8 +1,9 @@
 = render "reviews/header"
 .mypage
   .mypage__name
-    - if @user.name == current_user.name
-      あなたのマイページ
+    - if user_signed_in?
+      - if @user.name == current_user.name
+        あなたのマイページ
     - else
       = truncate(@user.name, length: 18)
       %span

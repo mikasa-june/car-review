@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   # before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :basic_auth
 
   after_action  :store_location
   def store_location
@@ -12,6 +13,7 @@ class ApplicationController < ActionController::Base
       session[:previous_url] = request.fullpath 
     end
   end
+
   protected
 
   def configure_permitted_parameters
@@ -25,4 +27,13 @@ class ApplicationController < ActionController::Base
       session[:previous_url] || root_path
     end
   end
+
+  private
+
+  def basic_auth
+    authenticate_or_request_with_http_basic do |username, password|
+      username == 'admin' && password == '6666'
+    end
+  end
+  
 end
