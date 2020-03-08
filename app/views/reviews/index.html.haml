@@ -26,6 +26,6 @@
     .main__container--right
       .random-box
         %p おすすめの投稿
-        -# - @sidereviews.each do |saide|
-        -#   = link_to (image_tag saide.image.url, height: '90px', width: '160px', class: 'test' if saide.image.present?), review_path(saide.id) 
+        - @sidereviews.each do |saide|
+          = link_to (image_tag saide.image.url, height: '90px', width: '160px', class: 'test' if saide.image.present?), review_path(saide.id) 
 = render "footer"
