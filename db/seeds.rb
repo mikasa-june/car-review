@@ -125,15 +125,11 @@ Category.create(
       group_id: 11,
     },
     {
-      name: '',
-      group_id: ,
-    },
-    {
       name: '三菱',
       group_id: 11,
     },
     {
-      name: 'いすゞ',
+      name: 'ISUZU',
       group_id: 11,
     },
     {
