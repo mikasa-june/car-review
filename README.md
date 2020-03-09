@@ -28,7 +28,7 @@ https://car-review-yoshizawa.herokuapp.com/
 
 ## テスト用ユーザー1
 - username
-テストくん
+test
 - email
 test@gmail.com
 - pass
