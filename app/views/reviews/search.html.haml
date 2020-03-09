@@ -21,7 +21,7 @@
                 .show_link-box
                   = link_to "続きはここをクリック", review_path(review.id), class: :show_link
               .result__text--date
-                = review.created_at
+                = review.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[review.created_at.wday]})")
 
     .main__container--right
       .random-box
