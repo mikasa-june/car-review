@@ -47,13 +47,14 @@ testtest
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
+|name|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
-|username|string|null: false|
 ### Association
 - has_many :reviews
 - has_many :comments
 - has_many :like_reviews
+- has_many :fav_reviews, through: :like_reviews, source: :review
 - has_many :like_comments
 
 
@@ -68,8 +69,10 @@ testtest
 - belongs_to :user
 - has_many :comments
 - has_many :like_reviews
-- has_many :tags though:  :reviews_tags
-- has_many :reviews_tags
+- has_many :users, through: :like_reviews
+- has_many :category_reviews
+- has_many :categories
+
 
 
 ## commentsテーブル
@@ -81,7 +84,6 @@ testtest
 ### Association
 - belongs_to :user
 - belongs_to :review
-- has_many :like_comments
 
 
 ## like_reviewsテーブル
@@ -102,20 +104,20 @@ testtest
 - belongs_to :user
 - belongs_to :comment
 
-## tagsテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|tag_name|string|null: false|
-|review_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
+|group_id|integer|null: false|
 ### Association
+- has_many :category_reviews
 - has_many :reviews though:  :reviews_tags
-- has_many :reviews_tags
 
-## reviews_tags
+## category_reviews
 |Column|Type|Options|
 |------|----|-------|
 |review_id|integer|null: false, foreign_key: true|
-|tag_id|integer|null: false, foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
 ### association
 - belongs_to :review
-- belongs_to :tag
+- belongs_to :category
