@@ -78,7 +78,7 @@ class ReviewsController < ApplicationController
 
   def search
     @reviews = Review.search(params[:keyword])
-    @sidereviews = Review.order("RAND()").limit(5)
+    @sidereviews = Review.order("updated_at ASC").limit(5)
   end
 
   private
