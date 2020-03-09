@@ -1,3 +1,28 @@
+## デプロイ先
+https://car-review-yoshizawa.herokuapp.com/
+
+## basic認証
+name admin
+pass 6666
+
+## テスト用ユーザー1
+username
+テストくん
+email
+test@gmail.com
+pass
+testtest
+
+
+## テスト用ユーザー2
+username
+test:b
+email
+testb@gmail.com
+pass
+testtest
+
+
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -18,7 +43,6 @@
 |text|text|null: false|
 |image|string||
 |user_id|integer|null: false, foreign_key: true|
-|tag_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - has_many :comments
